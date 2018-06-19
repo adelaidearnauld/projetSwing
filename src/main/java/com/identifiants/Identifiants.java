@@ -35,10 +35,10 @@ public class Identifiants extends javax.swing.JFrame {
         labelMdp = new javax.swing.JLabel();
         chLogin = new javax.swing.JTextField();
         chMdp = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        Consulter = new javax.swing.JButton();
+        Supprimer = new javax.swing.JButton();
+        Modifier = new javax.swing.JButton();
+        Ajouter = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,25 +58,45 @@ public class Identifiants extends javax.swing.JFrame {
         chMdp.setFont(new java.awt.Font("Tahoma", 2, 13)); // NOI18N
         chMdp.setText("Entrez votre mot de passe");
 
-        jButton1.setBackground(new java.awt.Color(204, 204, 255));
-        jButton1.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 153, 153));
-        jButton1.setText("Consulter");
+        Consulter.setBackground(new java.awt.Color(204, 204, 255));
+        Consulter.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
+        Consulter.setForeground(new java.awt.Color(0, 153, 153));
+        Consulter.setText("Consulter");
+        Consulter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsulterActionPerformed(evt);
+            }
+        });
 
-        jButton2.setBackground(new java.awt.Color(204, 204, 255));
-        jButton2.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 153, 153));
-        jButton2.setText("Supprimer");
+        Supprimer.setBackground(new java.awt.Color(204, 204, 255));
+        Supprimer.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
+        Supprimer.setForeground(new java.awt.Color(0, 153, 153));
+        Supprimer.setText("Supprimer");
+        Supprimer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SupprimerActionPerformed(evt);
+            }
+        });
 
-        jButton3.setBackground(new java.awt.Color(204, 204, 255));
-        jButton3.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 153, 153));
-        jButton3.setText("Modifier");
+        Modifier.setBackground(new java.awt.Color(204, 204, 255));
+        Modifier.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
+        Modifier.setForeground(new java.awt.Color(0, 153, 153));
+        Modifier.setText("Modifier");
+        Modifier.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModifierActionPerformed(evt);
+            }
+        });
 
-        jButton4.setBackground(new java.awt.Color(204, 204, 255));
-        jButton4.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(0, 153, 153));
-        jButton4.setText("Ajouter");
+        Ajouter.setBackground(new java.awt.Color(204, 204, 255));
+        Ajouter.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
+        Ajouter.setForeground(new java.awt.Color(0, 153, 153));
+        Ajouter.setText("Ajouter");
+        Ajouter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AjouterActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -98,13 +118,13 @@ public class Identifiants extends javax.swing.JFrame {
                             .addComponent(chMdp, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(234, 234, 234)
-                        .addComponent(jButton1)
+                        .addComponent(Consulter)
                         .addGap(75, 75, 75)
-                        .addComponent(jButton2)
+                        .addComponent(Supprimer)
                         .addGap(73, 73, 73)
-                        .addComponent(jButton3)
+                        .addComponent(Modifier)
                         .addGap(81, 81, 81)
-                        .addComponent(jButton4)))
+                        .addComponent(Ajouter)))
                 .addContainerGap(175, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -123,10 +143,10 @@ public class Identifiants extends javax.swing.JFrame {
                         .addComponent(chMdp, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Consulter, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Supprimer, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Modifier, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Ajouter, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(49, 49, 49)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37))
@@ -145,6 +165,30 @@ public class Identifiants extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void ConsulterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsulterActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_ConsulterActionPerformed
+
+    private void SupprimerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupprimerActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_SupprimerActionPerformed
+
+    private void ModifierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifierActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_ModifierActionPerformed
+
+    private void AjouterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AjouterActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_AjouterActionPerformed
 
     /**
      * @param args the command line arguments
@@ -182,12 +226,12 @@ public class Identifiants extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Ajouter;
+    private javax.swing.JButton Consulter;
+    private javax.swing.JButton Modifier;
+    private javax.swing.JButton Supprimer;
     private javax.swing.JTextField chLogin;
     private javax.swing.JTextField chMdp;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;

@@ -58,13 +58,13 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="234" max="-2" attributes="0"/>
-                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                          <Component id="Consulter" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-                          <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                          <Component id="Supprimer" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
-                          <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Modifier" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
-                          <Component id="jButton4" min="-2" max="-2" attributes="0"/>
+                          <Component id="Ajouter" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="175" max="32767" attributes="0"/>
@@ -91,10 +91,10 @@
                   </Group>
                   <EmptySpace pref="42" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jButton1" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
-                      <Component id="jButton2" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
-                      <Component id="jButton3" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
-                      <Component id="jButton4" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                      <Component id="Consulter" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                      <Component id="Supprimer" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                      <Component id="Modifier" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                      <Component id="Ajouter" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="464" max="-2" attributes="0"/>
@@ -151,7 +151,7 @@
             <Property name="text" type="java.lang.String" value="Entrez votre mot de passe"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="Consulter">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="cc" red="cc" type="rgb"/>
@@ -164,8 +164,11 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Consulter"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConsulterActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="Supprimer">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="cc" red="cc" type="rgb"/>
@@ -178,8 +181,11 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Supprimer"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SupprimerActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton3">
+        <Component class="javax.swing.JButton" name="Modifier">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="cc" red="cc" type="rgb"/>
@@ -192,8 +198,11 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Modifier"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModifierActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton4">
+        <Component class="javax.swing.JButton" name="Ajouter">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="cc" red="cc" type="rgb"/>
@@ -206,6 +215,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Ajouter"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AjouterActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
