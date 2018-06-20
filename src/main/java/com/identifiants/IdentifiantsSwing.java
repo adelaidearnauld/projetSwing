@@ -5,7 +5,10 @@
  */
 package com.identifiants;
 
+import com.solutec.Identifiants;
 import com.solutec.IdentifiantsBD;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,6 +22,8 @@ public class IdentifiantsSwing extends javax.swing.JFrame {
     
     public IdentifiantsSwing() {
         initComponents();
+      
+        
     }
 
     /**
@@ -41,10 +46,14 @@ public class IdentifiantsSwing extends javax.swing.JFrame {
         Supprimer = new javax.swing.JButton();
         Modifier = new javax.swing.JButton();
         Ajouter = new javax.swing.JButton();
+        chNvxLogin = new javax.swing.JTextField();
+        chNvxMdp = new javax.swing.JTextField();
+        Modifier2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Simplified Arabic", 0, 24)); // NOI18N
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
@@ -55,10 +64,10 @@ public class IdentifiantsSwing extends javax.swing.JFrame {
         labelMdp.setText("Mot de Passe");
 
         chLogin.setFont(new java.awt.Font("Tahoma", 2, 13)); // NOI18N
-        chLogin.setText("Entrez votre login");
+        chLogin.setText("Entrez le login");
 
         chMdp.setFont(new java.awt.Font("Tahoma", 2, 13)); // NOI18N
-        chMdp.setText("Entrez votre mot de passe");
+        chMdp.setText("Entrez le mot de passe");
 
         Consulter.setBackground(new java.awt.Color(204, 204, 255));
         Consulter.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
@@ -100,24 +109,39 @@ public class IdentifiantsSwing extends javax.swing.JFrame {
             }
         });
 
+        chNvxLogin.setText("Nouveau login");
+        chNvxLogin.setEnabled(false);
+        chNvxLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chNvxLoginActionPerformed(evt);
+            }
+        });
+
+        chNvxMdp.setText("Nouveau Mot de passe");
+        chNvxMdp.setEnabled(false);
+        chNvxMdp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chNvxMdpActionPerformed(evt);
+            }
+        });
+
+        Modifier2.setBackground(new java.awt.Color(204, 204, 255));
+        Modifier2.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
+        Modifier2.setForeground(new java.awt.Color(0, 153, 153));
+        Modifier2.setText("Confirmer modifs");
+        Modifier2.setEnabled(false);
+        Modifier2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Modifier2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(135, 135, 135)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 882, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(320, 320, 320)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelMdp))
-                        .addGap(67, 67, 67)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(chLogin)
-                            .addComponent(chMdp, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(234, 234, 234)
                         .addComponent(Consulter)
@@ -126,23 +150,45 @@ public class IdentifiantsSwing extends javax.swing.JFrame {
                         .addGap(73, 73, 73)
                         .addComponent(Modifier)
                         .addGap(81, 81, 81)
-                        .addComponent(Ajouter)))
-                .addContainerGap(175, Short.MAX_VALUE))
+                        .addComponent(Ajouter))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(296, 296, 296)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(320, 320, 320)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelMdp))
+                        .addGap(67, 67, 67)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(chLogin)
+                            .addComponent(chMdp, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE))
+                        .addGap(38, 38, 38)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(chNvxMdp)
+                            .addComponent(Modifier2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(chNvxLogin))))
+                .addContainerGap(267, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(96, 96, 96)
+                .addGap(41, 41, 41)
+                .addComponent(Modifier2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(chLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chNvxLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(36, 36, 36)
                         .addComponent(labelMdp))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(chMdp, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(chMdp, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                            .addComponent(chNvxMdp))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Consulter, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -170,20 +216,43 @@ public class IdentifiantsSwing extends javax.swing.JFrame {
 
     private void ConsulterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsulterActionPerformed
         // TODO add your handling code here:
+       
+        IdentifiantsBD identifiantsBD = new IdentifiantsBD();
+        ArrayList<Identifiants> listeIdentifiants = new ArrayList<>();
+        listeIdentifiants.addAll(identifiantsBD.getListIdentifiants());
+        String tampon = new String();
+        for (int i = 0; i < listeIdentifiants.size(); i++) {
+        tampon = tampon +("Login: "+ listeIdentifiants.get(i).getLogin()+"\n"+"Mdp: "+ listeIdentifiants.get(i).getMdp()+"\n \n");
+      }
         
+        jTextArea1.setText(tampon);
         
     }//GEN-LAST:event_ConsulterActionPerformed
 
     private void SupprimerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupprimerActionPerformed
         // TODO add your handling code here:
-        
+        IdentifiantsBD identifiantsBD = new IdentifiantsBD();
+        identifiantsBD.supprimerIdentifiant(chLogin.getText());
         
     }//GEN-LAST:event_SupprimerActionPerformed
 
     private void ModifierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifierActionPerformed
         // TODO add your handling code here:
-        
-        
+        //JOptionPane.showMessageDialog(rootPane, "TEST");
+       //jTextArea1.setText(chNvxLogin.getText()+chNvxMdp.getText());
+     
+        chNvxLogin.setEnabled(true);
+        chNvxMdp.setEnabled(true);
+        Modifier2.setEnabled(true);
+        Modifier.setEnabled(false);
+        chLogin.setEnabled(false);
+        chMdp.setEnabled(false);
+     
+       //IdentifiantsBD identifiantsBD = new IdentifiantsBD();
+       //identifiantsBD.modifierIdentifiant(chLogin.getText(), chNvxLogin.getText(), chNvxMdp.getText());
+       
+       
+       
     }//GEN-LAST:event_ModifierActionPerformed
 
     private void AjouterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AjouterActionPerformed
@@ -192,6 +261,27 @@ public class IdentifiantsSwing extends javax.swing.JFrame {
         identifiantsBD.ajouterIdentifiant(chLogin.getText(), chMdp.getText());
         
     }//GEN-LAST:event_AjouterActionPerformed
+
+    private void chNvxMdpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chNvxMdpActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chNvxMdpActionPerformed
+
+    private void chNvxLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chNvxLoginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chNvxLoginActionPerformed
+
+    private void Modifier2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Modifier2ActionPerformed
+        // TODO add your handling code here:
+       
+       chNvxLogin.setEnabled(false);
+       chNvxMdp.setEnabled(false);
+       Modifier2.setEnabled(false);
+       IdentifiantsBD identifiantsBD = new IdentifiantsBD();
+       identifiantsBD.modifierIdentifiant(chLogin.getText(), chNvxLogin.getText(), chNvxMdp.getText());
+       chLogin.setEnabled(true);
+       chMdp.setEnabled(true);
+       Modifier.setEnabled(true);
+    }//GEN-LAST:event_Modifier2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -225,6 +315,7 @@ public class IdentifiantsSwing extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new IdentifiantsSwing().setVisible(true);
+                
             }
         });
     }
@@ -233,9 +324,12 @@ public class IdentifiantsSwing extends javax.swing.JFrame {
     private javax.swing.JButton Ajouter;
     private javax.swing.JButton Consulter;
     private javax.swing.JButton Modifier;
+    private javax.swing.JButton Modifier2;
     private javax.swing.JButton Supprimer;
     private javax.swing.JTextField chLogin;
     private javax.swing.JTextField chMdp;
+    private javax.swing.JTextField chNvxLogin;
+    private javax.swing.JTextField chNvxMdp;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;

@@ -4,10 +4,10 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>com.solutec.Identifiants</class>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://employesaws.casjvm8rgxpt.eu-west-1.rds.amazonaws.com:3306/employesdbamazon"/>
-      <property name="javax.persistence.jdbc.user" value="nitsugua"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3307/mysql?zeroDateTimeBehavior=convertToNull"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-      <property name="javax.persistence.jdbc.password" value="14780002"/>
+      <property name="javax.persistence.jdbc.password" value=""/>
     </properties>
   </persistence-unit>
 </persistence>
