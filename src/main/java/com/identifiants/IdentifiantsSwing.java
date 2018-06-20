@@ -5,17 +5,19 @@
  */
 package com.identifiants;
 
+import com.solutec.IdentifiantsBD;
+
 /**
  *
  * @author esic
  */
-public class Identifiants extends javax.swing.JFrame {
+public class IdentifiantsSwing extends javax.swing.JFrame {
 
     /**
      * Creates new form Identifiants
      */
     
-    public Identifiants() {
+    public IdentifiantsSwing() {
         initComponents();
     }
 
@@ -186,7 +188,8 @@ public class Identifiants extends javax.swing.JFrame {
 
     private void AjouterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AjouterActionPerformed
         // TODO add your handling code here:
-        
+        IdentifiantsBD identifiantsBD = new IdentifiantsBD();
+        identifiantsBD.ajouterIdentifiant(chLogin.getText(), chMdp.getText());
         
     }//GEN-LAST:event_AjouterActionPerformed
 
@@ -207,20 +210,21 @@ public class Identifiants extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Identifiants.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IdentifiantsSwing.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Identifiants.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IdentifiantsSwing.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Identifiants.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IdentifiantsSwing.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Identifiants.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IdentifiantsSwing.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Identifiants().setVisible(true);
+                new IdentifiantsSwing().setVisible(true);
             }
         });
     }
