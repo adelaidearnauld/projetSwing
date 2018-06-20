@@ -47,10 +47,17 @@ public class IdentifiantsBD {
      Identifiants e = (Identifiants) q.getSingleResult();  
      //System.out.println(e.getId());
      
-     String req2 = "DELETE FROM Identifiants u WHERE u.id= :idEmp";
+     em.getTransaction().begin();
+     
+     String req2 = "DELETE FROM Identifiants i WHERE i.id= :idEmp";
      Query q2 = em.createQuery(req2);
      q2.setParameter("idEmp", e.getId());
      q2.executeUpdate();
+     
+     em.getTransaction().commit();
+     
+     
+   
     }
 
     public void modifierIdentifiant(String login, String nouvLogin, String nouvMdp){
