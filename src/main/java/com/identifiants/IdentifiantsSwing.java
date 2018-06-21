@@ -241,12 +241,15 @@ public class IdentifiantsSwing extends javax.swing.JFrame {
         //JOptionPane.showMessageDialog(rootPane, "TEST");
        //jTextArea1.setText(chNvxLogin.getText()+chNvxMdp.getText());
      
-        chNvxLogin.setEnabled(true);
-        chNvxMdp.setEnabled(true);
-        Modifier2.setEnabled(true);
-        Modifier.setEnabled(false);
-        chLogin.setEnabled(false);
-        chMdp.setEnabled(false);
+       chNvxLogin.setEnabled(true);
+       chNvxMdp.setEnabled(true);
+       Modifier2.setEnabled(true);
+       Modifier.setEnabled(false);
+       chLogin.setEnabled(false);
+       chMdp.setEnabled(false);
+       Ajouter.setEnabled(false);
+       Supprimer.setEnabled(false);
+       Consulter.setEnabled(false);
      
        //IdentifiantsBD identifiantsBD = new IdentifiantsBD();
        //identifiantsBD.modifierIdentifiant(chLogin.getText(), chNvxLogin.getText(), chNvxMdp.getText());
@@ -258,7 +261,12 @@ public class IdentifiantsSwing extends javax.swing.JFrame {
     private void AjouterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AjouterActionPerformed
         // TODO add your handling code here:
         IdentifiantsBD identifiantsBD = new IdentifiantsBD();
-        identifiantsBD.ajouterIdentifiant(chLogin.getText(), chMdp.getText());
+        boolean test;
+        test = identifiantsBD.ajouterIdentifiant(chLogin.getText(), chMdp.getText());
+        if (test==false){
+       
+        JOptionPane.showMessageDialog(rootPane, "Utilisateur déjà existant !",  "Erreur", JOptionPane.ERROR_MESSAGE);
+        }
         
     }//GEN-LAST:event_AjouterActionPerformed
 
@@ -277,10 +285,20 @@ public class IdentifiantsSwing extends javax.swing.JFrame {
        chNvxMdp.setEnabled(false);
        Modifier2.setEnabled(false);
        IdentifiantsBD identifiantsBD = new IdentifiantsBD();
-       identifiantsBD.modifierIdentifiant(chLogin.getText(), chNvxLogin.getText(), chNvxMdp.getText());
+       boolean test;
+       test = identifiantsBD.modifierIdentifiant(chLogin.getText(), chNvxLogin.getText(), chNvxMdp.getText());
        chLogin.setEnabled(true);
        chMdp.setEnabled(true);
        Modifier.setEnabled(true);
+       Ajouter.setEnabled(true);
+       Supprimer.setEnabled(true);
+       Consulter.setEnabled(true);
+        if (test==false){
+       
+        JOptionPane.showMessageDialog(rootPane, "Utilisateur déjà existant !",  "Erreur", JOptionPane.ERROR_MESSAGE);
+        }
+       
+       
     }//GEN-LAST:event_Modifier2ActionPerformed
 
     /**

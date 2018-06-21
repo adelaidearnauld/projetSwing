@@ -5,6 +5,7 @@
  */
 package com.solutec;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -19,12 +20,29 @@ public class IdentifiantsBD {
      EntityManagerFactory emf = Persistence.createEntityManagerFactory("solutec-lyon_SwingIdentifiants_jar_1.0-SNAPSHOTPU");
      EntityManager em = emf.createEntityManager();
      
-    public void ajouterIdentifiant(String login, String mdp){
+    public boolean ajouterIdentifiant(String login, String mdp){
+    boolean test=true;
+    ArrayList<Identifiants> listeIdentifiants = new ArrayList<>();
+    listeIdentifiants.addAll(getListIdentifiants());
+   
     
-    Identifiants identifiants = new Identifiants();
-    identifiants.setLogin(login);
-    identifiants.setMdp(mdp);
-    this.persist(identifiants);
+        for (int i = 0; i < listeIdentifiants.size() ; i++) {
+            
+       if (listeIdentifiants.get(i).getLogin().equals(login)) {
+           test=false;       
+           break;
+                }
+        }
+        
+        if (test) { 
+            
+                    Identifiants identifiants = new Identifiants();
+                    identifiants.setLogin(login);
+                    identifiants.setMdp(mdp);
+                    this.persist(identifiants);    
+        }
+    
+   return test;
     }
     
     public Collection getListIdentifiants() {        //Collection (Haut) --> List --> ArrayList (Bas)
@@ -60,8 +78,20 @@ public class IdentifiantsBD {
    
     }
 
-    public void modifierIdentifiant(String login, String nouvLogin, String nouvMdp){
+    public boolean modifierIdentifiant(String login, String nouvLogin, String nouvMdp){
+     boolean test =true;
+      ArrayList<Identifiants> listeIdentifiants = new ArrayList<>();
+      listeIdentifiants.addAll(getListIdentifiants());
+   
+        for (int i = 0; i < listeIdentifiants.size() ; i++) {
+            
+       if (listeIdentifiants.get(i).getLogin().equals(nouvLogin) && !nouvLogin.equals(login) ) {
+           test=false;       
+           break;
+                }
+        }
         
+    if (test){ 
     String req = "SELECT u from Identifiants u WHERE u.login= :idEmp";  
     Query q = em.createQuery(req);
     q.setParameter("idEmp", login);
@@ -72,7 +102,9 @@ public class IdentifiantsBD {
     //ident.setLogin(nouvLogin);
     //ident.setMdp(nouvMdp);
     this.persist(e);
+    }
     
+    return test;
         }
     
     public void persist(Object object) {
