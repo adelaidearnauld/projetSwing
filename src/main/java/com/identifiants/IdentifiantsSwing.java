@@ -7,6 +7,8 @@ package com.identifiants;
 
 import com.solutec.Identifiants;
 import com.solutec.IdentifiantsBD;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -22,6 +24,8 @@ public class IdentifiantsSwing extends javax.swing.JFrame {
     
     public IdentifiantsSwing() {
         initComponents();
+        
+     
       
         
     }
@@ -65,9 +69,29 @@ public class IdentifiantsSwing extends javax.swing.JFrame {
 
         chLogin.setFont(new java.awt.Font("Tahoma", 2, 13)); // NOI18N
         chLogin.setText("Entrez le login");
+        chLogin.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                chLoginMouseDragged(evt);
+            }
+        });
+        chLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                chLoginMouseClicked(evt);
+            }
+        });
+        chLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chLoginActionPerformed(evt);
+            }
+        });
 
         chMdp.setFont(new java.awt.Font("Tahoma", 2, 13)); // NOI18N
         chMdp.setText("Entrez le mot de passe");
+        chMdp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                chMdpMouseClicked(evt);
+            }
+        });
 
         Consulter.setBackground(new java.awt.Color(204, 204, 255));
         Consulter.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
@@ -111,6 +135,11 @@ public class IdentifiantsSwing extends javax.swing.JFrame {
 
         chNvxLogin.setText("Nouveau login");
         chNvxLogin.setEnabled(false);
+        chNvxLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                chNvxLoginMouseClicked(evt);
+            }
+        });
         chNvxLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chNvxLoginActionPerformed(evt);
@@ -119,6 +148,11 @@ public class IdentifiantsSwing extends javax.swing.JFrame {
 
         chNvxMdp.setText("Nouveau Mot de passe");
         chNvxMdp.setEnabled(false);
+        chNvxMdp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                chNvxMdpMouseClicked(evt);
+            }
+        });
         chNvxMdp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chNvxMdpActionPerformed(evt);
@@ -317,6 +351,34 @@ public class IdentifiantsSwing extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(rootPane, "Modification réussie",  "Info", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_Modifier2ActionPerformed
+
+    private void chLoginMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chLoginMouseDragged
+        chLogin.setText("");
+    }//GEN-LAST:event_chLoginMouseDragged
+
+    private void chLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chLoginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chLoginActionPerformed
+
+    private void chLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chLoginMouseClicked
+        // TODO add your handling code here:
+            chLogin.setText("");
+    }//GEN-LAST:event_chLoginMouseClicked
+
+    private void chMdpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chMdpMouseClicked
+        // TODO add your handling code here:
+         chMdp.setText("");
+    }//GEN-LAST:event_chMdpMouseClicked
+
+    private void chNvxLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chNvxLoginMouseClicked
+        // TODO add your handling code here:
+        chNvxLogin.setText("");
+    }//GEN-LAST:event_chNvxLoginMouseClicked
+
+    private void chNvxMdpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chNvxMdpMouseClicked
+        // TODO add your handling code here:
+        chNvxMdp.setText("");
+    }//GEN-LAST:event_chNvxMdpMouseClicked
 
     /**
      * @param args the command line arguments
