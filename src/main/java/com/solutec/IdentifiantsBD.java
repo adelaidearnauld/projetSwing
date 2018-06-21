@@ -52,13 +52,27 @@ public class IdentifiantsBD {
 
     }
     
-    public void supprimerIdentifiant(String login){
+    public boolean supprimerIdentifiant(String login){
         /*
     String req = "DELETE FROM Identifiants u WHERE u.login = :ident";
     Query q = em.createQuery(req);
     q.setParameter("ident", login);
     q.executeUpdate();
     */
+    boolean test=false;
+    ArrayList<Identifiants> listeIdentifiants = new ArrayList<>();
+    listeIdentifiants.addAll(getListIdentifiants());
+   
+    
+        for (int i = 0; i < listeIdentifiants.size() ; i++) {
+            
+       if (listeIdentifiants.get(i).getLogin().equals(login)) {
+           test=true;       
+           break;
+                }
+        }   
+        
+     if (test){ 
      String req = "SELECT u from Identifiants u WHERE u.login= :idLogin";  
      Query q = em.createQuery(req);
      q.setParameter("idLogin", login);
@@ -74,8 +88,8 @@ public class IdentifiantsBD {
      
      em.getTransaction().commit();
      
-     
-   
+     }
+   return test;
     }
 
     public boolean modifierIdentifiant(String login, String nouvLogin, String nouvMdp){

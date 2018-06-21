@@ -232,7 +232,18 @@ public class IdentifiantsSwing extends javax.swing.JFrame {
     private void SupprimerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupprimerActionPerformed
         // TODO add your handling code here:
         IdentifiantsBD identifiantsBD = new IdentifiantsBD();
-        identifiantsBD.supprimerIdentifiant(chLogin.getText());
+        boolean test;
+        test = identifiantsBD.supprimerIdentifiant(chLogin.getText());
+        
+         if (test==false){
+       
+        JOptionPane.showMessageDialog(rootPane, "Echec lors de la suprresion ! Utilisateur introuvable",  "Erreur", JOptionPane.ERROR_MESSAGE);
+        }
+         
+         if (test){
+       
+        JOptionPane.showMessageDialog(rootPane, "Suppresion réussie",  "Info", JOptionPane.INFORMATION_MESSAGE);
+        }
         
     }//GEN-LAST:event_SupprimerActionPerformed
 
@@ -267,7 +278,10 @@ public class IdentifiantsSwing extends javax.swing.JFrame {
        
         JOptionPane.showMessageDialog(rootPane, "Utilisateur déjà existant !",  "Erreur", JOptionPane.ERROR_MESSAGE);
         }
-        
+          if (test){
+       
+        JOptionPane.showMessageDialog(rootPane, "Ajout réussi",  "Info", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_AjouterActionPerformed
 
     private void chNvxMdpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chNvxMdpActionPerformed
@@ -298,7 +312,10 @@ public class IdentifiantsSwing extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(rootPane, "Utilisateur déjà existant !",  "Erreur", JOptionPane.ERROR_MESSAGE);
         }
        
+         if (test){
        
+        JOptionPane.showMessageDialog(rootPane, "Modification réussie",  "Info", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_Modifier2ActionPerformed
 
     /**
